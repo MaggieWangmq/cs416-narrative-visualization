@@ -2,14 +2,52 @@
 <html>
 <h1>Hello!</h1>
 <h1>Welcome to My Website!</h1>
-<body>
-    <h1>Welcome to My Website!</h1>
+<script src='https://d3js.org/d3.v5.min.js'></script>
+<style> circle {fill: lightblue; stroke: black;} </style>
+<body onload='init()'>
+<svg width=300 height=300>
+</svg>
+<script>
+async function init() {
+    const data = await
+    d3.csv('https://flunky.github.io/cars2017.csv');
+    margin = 50
+    xs = d3.scaleLog().base(10).domain([10,150]).range([0,200])
+    ys = d3.scaleLog().base(10).domain([10,150]).range([200,0])
+    d3.select("svg")
+    .append("g")
+    .attr("transform", "translate(50,50)")
+    .selectAll("circle")
+    .data(data)
+    .enter()
+    .append("circle")
+    .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
+    .attr("cy", function(d) {return ys(+d["AverageHighwayMPG"])})
+    .attr("r", function(d) {return 2 + (+d["EngineCylinders"])})
+
+    xaxes = d3.axisBottom(xs)
+    .tickValues([10,20,50,100])
+    .tickFormat(d3.format("~s"));
+
+    yaxes = d3.axisLeft(ys)
+    .tickValues([10,20,50,100])
+    .tickFormat(d3.format("~s"));
+
+    d3.select("svg").append("g")
+    .attr("transform", "translate(50,50)")
+    .call(yaxes);
+
+    d3.select("svg").append("g")
+    .attr("transform", "translate(50,250)")
+    .call(xaxes);
+
+}
+</script>
     <!-- Button to go to scenes.html -->
     <button onclick="redirectToScenesPage()">Go to Scenes</button>
 
     <script>
         function redirectToScenesPage() {
-            // Change "scenes.html" to the actual file path if it's located in a different folder
             window.location.href = "scenes.html";
         }
     </script>
