@@ -5,6 +5,14 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
+ <!-- Button to go to scenes.html -->
+ <button onclick="redirectToScenesPage()">Go to Scenes</button>
+
+ <script>
+     function redirectToScenesPage() {
+         window.location.href = "scenes.html";
+     }
+ </script>
 <svg width=1500 height=1500>
 </svg>
 <script>
@@ -43,13 +51,5 @@ async function init() {
 
 }
 </script>
-    <!-- Button to go to scenes.html -->
-    <button onclick="redirectToScenesPage()">Go to Scenes</button>
-
-    <script>
-        function redirectToScenesPage() {
-            window.location.href = "scenes.html";
-        }
-    </script>
 </body>
 </html>
