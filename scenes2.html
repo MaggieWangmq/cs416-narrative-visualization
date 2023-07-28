@@ -6,9 +6,13 @@
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
  <!-- Button to go to scenes.html -->
+ <button onclick="redirectToMainPage()">Go to Scenes</button>
  <button onclick="redirectToScenesPage()">Go to Scenes</button>
  <button onclick="redirectToScenes2Page()">Go to Scenes2</button>
  <script>
+    function redirectToMainPage() {
+         window.location.href = "index.html";
+     }
      function redirectToScenesPage() {
          window.location.href = "scenes.html";
      }
