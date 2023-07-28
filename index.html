@@ -3,6 +3,7 @@
 <h1>Hello!</h1>
 <h1>Welcome to My Website!</h1>
 <script src='https://d3js.org/d3.v5.min.js'></script>
+<script src='https://d3js.org/d3-scale-chromatic.v1.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
  <!-- Button to go to scenes.html -->
@@ -29,6 +30,7 @@ async function init() {
 
     xs = d3.scaleLog().base(10).domain([10,200]).range([0,1000])
     ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
+    mycolor = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolateRainbow);
     d3.select("svg")
     .append("g")
     .attr("transform", "translate(50,50)")
@@ -39,6 +41,7 @@ async function init() {
     .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
     .attr("cy", function(d) {return ys(+d["AverageHighwayMPG"])})
     .attr("r", function(d) {return 2 + (+d["EngineCylinders"])})
+    .style("fill", function(d) {return mycolor(2 + (+d["EngineCylinders"]))})
 
     xaxes = d3.axisBottom(xs)
     .tickValues([10,20,50,100,200])
