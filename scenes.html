@@ -7,10 +7,15 @@
 <div id="tooltip"></div>
 <body onload='init()'>
  <!-- Button to go to scenes.html -->
+ <button onclick="redirectToIndexPage()">Back</button>
+ <br>
  <button onclick="redirectToScenes3Page()">Fuel: Gasoline</button>
  <button onclick="redirectToScenesPage()">Fuel: Diesel</button>
  <button onclick="redirectToScenes2Page()">Fuel: Electricity</button>
  <script>
+    function redirectToIndexPage() {
+         window.location.href = "index.html";
+     }
     function redirectToScenes3Page() {
          window.location.href = "scenes3.html";
      }
