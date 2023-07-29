@@ -27,7 +27,7 @@ async function init() {
     const data = await
     d3.csv('https://flunky.github.io/cars2017.csv');
     const Electricitydata = data.filter(function(d){ return d.Fuel == "Electricity" });
-    xs = d3.scaleLog().base(10).domain([10,200]).range([0,1000])
+    xs = d3.scaleLog().base(10).domain([10,200]).range([0,1200])
     ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
     d3.select("svg")
     .append("g")
