@@ -35,7 +35,7 @@
         d3.csv('https://flunky.github.io/cars2017.csv');
         const Dieseldata = data.filter(function(d){ return d.Fuel == "Diesel" });
         xs = d3.scaleLog().base(10).domain([10,200]).range([0,1200])
-        ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
+        ys = d3.scaleLog().base(10).domain([10,200]).range([500,0])
         mycolor = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolateRainbow);
         var tooltip = d3.select("#tooltip")
       .append("div")
@@ -106,7 +106,7 @@
         .call(yaxes);
     
         d3.select("svg").append("g")
-        .attr("transform", "translate(50,650)")
+        .attr("transform", "translate(50,550)")
         .call(xaxes);
     
     }
