@@ -4,7 +4,7 @@
 <h1>Welcome to My Website!</h1>
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <script src='https://d3js.org/d3-scale-chromatic.v1.min.js'></script>
-<style> circle {fill: lightblue; stroke: black;} </style>
+<style> circle {stroke: grey;} </style>
 <div id="tooltip"></div>
 <body onload='init()'>
  <!-- Button to go to scenes.html -->
@@ -81,7 +81,7 @@ async function init() {
     .append("circle")
     .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
     .attr("cy", function(d) {return ys(+d["AverageHighwayMPG"])})
-    .attr("r", function(d) {return 5 + (+d["EngineCylinders"])})
+    .attr("r", function(d) {return 10 + 3 * (+d["EngineCylinders"])})
     .style("fill", function(d) {return mycolor(7 + (+d["EngineCylinders"]))})
     .style("opacity", 0.7)
     .on("mouseover", showTooltip )
