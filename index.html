@@ -103,6 +103,29 @@ async function init() {
     .attr("transform", "translate(100,550)")
     .call(xaxes);
 
+    d3.select("svg")
+      .append("text")
+      .attr("x", 650) // X-coordinate of the title
+      .attr("y", 680) // Y-coordinate of the title
+      .text("Average City MPG") // X-axis title
+      .style("font-size", "12px")
+      .style("fill", "black")
+      .style("font-family", "Arial")
+      .style("line-height", "20px")
+      .style("text-anchor", "middle"); // Center-align the title
+
+    d3.select("svg")
+      .append("text")
+      .attr("transform", "rotate(-90)") // Rotate the text to make it vertical
+      .attr("x", -325) // X-coordinate of the title
+      .attr("y", 50)   // Y-coordinate of the title
+      .text("Average Highway MPG") // Y-axis title
+      .style("font-size", "12px")
+      .style("fill", "black")
+      .style("font-family", "Arial")
+      .style("line-height", "20px")
+      .style("text-anchor", "middle"); // Center-align the title
+
 }
 </script>
 </body>
