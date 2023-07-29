@@ -23,40 +23,42 @@
 <svg width=1500 height=1500>
 </svg>
 <script>
-async function init() {
-    const data = await
-    d3.csv('https://flunky.github.io/cars2017.csv');
+    async function init() {
+        const data = await
+        d3.csv('https://flunky.github.io/cars2017.csv');
     const Electricitydata = data.filter(function(d){ return d.Fuel == "Electricity" });
-    xs = d3.scaleLog().base(10).domain([10,200]).range([0,1200])
-    ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
-    d3.select("svg")
-    .append("g")
-    .attr("transform", "translate(50,50)")
-    .selectAll("circle")
-    .data(Electricitydata)
-    .enter()
-    .append("circle")
-    .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
-    .attr("cy", function(d) {return ys(+d["AverageHighwayMPG"])})
-    .attr("r", function(d) {return 2 + (+d["EngineCylinders"])})
-
-    xaxes = d3.axisBottom(xs)
-    .tickValues([10,20,50,100,200])
-    .tickFormat(d3.format("~s"));
-
-    yaxes = d3.axisLeft(ys)
-    .tickValues([10,20,50,100,200])
-    .tickFormat(d3.format("~s"));
-
-    d3.select("svg").append("g")
-    .attr("transform", "translate(50,50)")
-    .call(yaxes);
-
-    d3.select("svg").append("g")
-    .attr("transform", "translate(50,650)")
-    .call(xaxes);
-
-}
-</script>
+        xs = d3.scaleLog().base(10).domain([10,200]).range([0,1200])
+        ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
+        mycolor = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolateRainbow);
+        d3.select("svg")
+        .append("g")
+        .attr("transform", "translate(50,50)")
+        .selectAll("circle")
+        .data(Electricitydata)
+        .enter()
+        .append("circle")
+        .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
+        .attr("cy", function(d) {return ys(+d["AverageHighwayMPG"])})
+        .attr("r", function(d) {return 2+ (+d["EngineCylinders"])})
+        .style("fill", function(d) {return mycolor(3 + (+d["EngineCylinders"]))})
+    
+        xaxes = d3.axisBottom(xs)
+        .tickValues([10,20,50,100,200])
+        .tickFormat(d3.format("~s"));
+    
+        yaxes = d3.axisLeft(ys)
+        .tickValues([10,20,50,100,200])
+        .tickFormat(d3.format("~s"));
+    
+        d3.select("svg").append("g")
+        .attr("transform", "translate(50,50)")
+        .call(yaxes);
+    
+        d3.select("svg").append("g")
+        .attr("transform", "translate(50,650)")
+        .call(xaxes);
+    
+    }
+    </script>
 </body>
 </html>
