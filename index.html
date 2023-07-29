@@ -55,7 +55,7 @@ async function init() {
         .duration(200)
         tooltip
         .style("opacity", 0.9)
-        .html("Brand: " + d.Make + "<br>" + "Fuel: " + d.Fuel + "<br>" + "AverageCityMPG: " + d.AverageCityMPG + "<br>" + "AverageHighwayMPG: " + d.AverageHighwayMPG + "<br>" + "EngineCylinders: " + d.EngineCylinders) 
+        .html("Brand: " + d.Make + "<br>" + "Fuel: " + d.Fuel + "<br>" + "AverageHighwayMPG: " + d.AverageHighwayMPG + "<br>" + "AverageCityMPG: " + d.AverageCityMPG + "<br>" + "EngineCylinders: " + d.EngineCylinders) 
         .style("left", (d3.mouse(this)[0]+30) + "px")
         .style("top", (d3.mouse(this)[1]+30) + "px")
     }
