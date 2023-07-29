@@ -7,9 +7,9 @@
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
  <!-- Button to go to scenes.html -->
- <button onclick="redirectToMainPage()">Go to Main</button>
- <button onclick="redirectToScenesPage()">Go to Scenes</button>
- <button onclick="redirectToScenes2Page()">Go to Scenes2</button>
+ <button onclick="redirectToMainPage()">Fuel: Gasoline</button>
+ <button onclick="redirectToScenesPage()">Fuel: Diesel</button>
+ <button onclick="redirectToScenes2Page()">Fuel: Electricity</button>
  <script>
     function redirectToMainPage() {
          window.location.href = "index.html";
@@ -27,7 +27,7 @@
 async function init() {
     const data = await
     d3.csv('https://flunky.github.io/cars2017.csv');
-
+    const Gasolinedata = data.filter(function(d){ return d.Fuel == "Gasoline" });
     xs = d3.scaleLog().base(10).domain([10,200]).range([0,1200])
     ys = d3.scaleLog().base(10).domain([10,200]).range([600,0])
     mycolor = d3.scaleSequential().domain([1,10]).interpolator(d3.interpolateRainbow);
@@ -35,7 +35,7 @@ async function init() {
     .append("g")
     .attr("transform", "translate(50,50)")
     .selectAll("circle")
-    .data(data)
+    .data(Gasolinedata)
     .enter()
     .append("circle")
     .attr("cx", function(d) {return xs(+d["AverageCityMPG"])})
