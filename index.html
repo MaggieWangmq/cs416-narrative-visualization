@@ -73,7 +73,7 @@ async function init() {
 
     d3.select("svg")
     .append("g")
-    .attr("transform", "translate(50,50)")
+    .attr("transform", "translate(100,50)")
     .selectAll("circle")
     .data(data)
     .enter()
@@ -96,11 +96,11 @@ async function init() {
     .tickFormat(d3.format("~s"));
 
     d3.select("svg").append("g")
-    .attr("transform", "translate(50,50)")
+    .attr("transform", "translate(100,50)")
     .call(yaxes);
 
     d3.select("svg").append("g")
-    .attr("transform", "translate(50,550)")
+    .attr("transform", "translate(100,550)")
     .call(xaxes);
 
 }
