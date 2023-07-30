@@ -133,6 +133,15 @@ async function init() {
 
     d3.select("svg")
       .append("text")
+      .attr("x", 400) // X-coordinate of the annotation
+      .attr("y", 230)  // Y-coordinate of the annotation
+      .text("Acura gasoline vehicles stand out with impressive fuel efficiency in both city and highway driving.<br>Audi's gasoline-powered cars demonstrate a balance between engine size and fuel economy. Their four-cylinder models exhibit commendable city and highway MPG.<br>BMW's gasoline cars offer a diverse range of options, with some models excelling in fuel efficiency. Notably, their two-cylinder model showcases an efficient city-to-highway MPG ratio.<br>Chevrolet's gasoline-powered vehicles vary in fuel efficiency, but their four-cylinder models display competitive city and highway MPG figures.")
+      .style("font-family", "Arial")
+      .style("font-size", "12px")
+      .style("fill", "black");
+
+    d3.select("svg")
+      .append("text")
       .attr("x", 680) // X-coordinate of the title
       .attr("y", 580) // Y-coordinate of the title
       .text("Average City MPG") // X-axis title
