@@ -128,6 +128,19 @@
       .style("font-size", "40px")
       .style("opacity", 0.3)
       .style("fill", "black");
+
+    d3.select("svg")
+        .append("text")
+        .attr("x", 700) // X-coordinate of the annotation
+        .attr("y", 300) // Y-coordinate of the annotation
+        .style("font-family", "Arial")
+        .style("font-size", "12px")
+        .style("fill", "black")
+        .text("- BMW's diesel cars are prominent for their exceptional fuel economy, particularly in city driving.")
+        .append("tspan")
+        .attr("x", 700) // X-coordinate of the third line
+        .attr("dy", "1.2em") // Offset for the third line
+        .text("- Jaguar's diesel vehicles exhibit superior fuel efficiency, especially the four-cylinder model.");
         
     d3.select("svg")
       .append("text")
